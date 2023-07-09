@@ -1,31 +1,4 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-           
-            primary: '#E94259',
-            black : '#000'
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
-      h3 {
-        font-family: 'Ropa Sans', sans-serif;
-        font-weight: 500;
-      }
-   
-  </style>
-</head>
+
 <body>
     
     <div>
@@ -36,25 +9,25 @@
 
                 <div>
                     <a href="" class="flex gap-2">
-                        <img src="../icons/icons8-user-30.png" alt="" srcset="" class="w-6">
+                        <img src="./icons/icons8-user-30.png" alt="" srcset="" class="w-6">
                         <span class="text-white">Login</span>
                     </a>
                 </div>
 
                 <div class="flex gap-2 pt-5">
-                    <div class="bg-primary w-8 rounded-full p-2">
+                    <div class="bg-main w-8 rounded-full p-2">
                         <a href="" class="">
-                            <img src="../icons/icons8-facebook.svg" alt="" srcset="">
+                            <img src="./icons/icons8-facebook.svg" alt="" srcset="">
                         </a>
                     </div>
-                    <div class="bg-primary w-8 rounded-full p-2">
+                    <div class="bg-main w-8 rounded-full p-2">
                         <a href="" class="">
-                            <img src="../icons/icons8-twitter.svg" alt="" srcset="">
+                            <img src="./icons/icons8-twitter.svg" alt="" srcset="">
                         </a>
                     </div>
-                    <div class="bg-primary w-8 rounded-full p-2">
+                    <div class="bg-main w-8 rounded-full p-2">
                         <a href="" class="">
-                            <img src="../icons/icons8-instagram.svg" alt="" srcset="">
+                            <img src="./icons/icons8-instagram.svg" alt="" srcset="">
                         </a>
                     </div>
                    
@@ -71,18 +44,18 @@
                 
                 <div>
                     <div class="slideshow-container relative">
-                        <div class="slide w-full h-[180px] absolute w-1/4">
-                        <img src="../images/footer1.jpg" class="w-full h-full object-cover" alt="Image 1">
+                        <div class="slide w-full h-[180px] absolute ">
+                        <img src="./images/footer1.jpg" class="w-full h-full object-cover" alt="Image 1">
                         </div>
-                        <div class="slide w-full h-[180px] absolute w-1/4">
-                        <img src="../images/footer2.jpg" class="w-full h-full object-cover" alt="Image 2">
+                        <div class="slide w-full h-[180px] absolute ">
+                        <img src="./images/footer2.jpg" class="w-full h-full object-cover" alt="Image 2">
                         </div>
-                        <div class="slide w-full h-[180px] absolute w-1/4">
-                        <img src="../images/fotter3.jpg" class="w-full h-full object-cover" alt="Image 3" >
+                        <div class="slide w-full h-[180px] absolute ">
+                        <img src="./images/fotter3.jpg" class="w-full h-full object-cover" alt="Image 3" >
                         </div>
                     </div>
                     
-                    <script src="../script/slides.js"></script>
+                    <script src="./script/slides.js"></script>
                 </div>
 
             </div>
@@ -93,20 +66,19 @@
 
                 <form action="" class="w-full">
                     <input type="text" placeholder="Enter Email Address" class="p-3 px-5 outline-none  text-sm w-full mb-3 ">
-                    <input type="button" value="Subscribe" class="bg-primary w-full outline-none text-white font-bold p-3">
+                    <input type="button" value="Subscribe" class="bg-main w-full outline-none text-white font-bold p-3">
                 </form>
                 
             </div>
 
         </div>
 
-        <div class="w-full bg-primary  items-center py-6">
+        <div class="w-full bg-main  items-center py-6">
             <p class="text-white text-center">Copyright ©2023 All rights reserved | The Cellar Restaurant | Designed by Yobrand Group</p>
             
-            <button class="absolute bottom-6 bg-primary rounded  right-6 fixed font-[500] py-1.5 px-1">
-                <img src="../icons/icons8-chevron-up-64.png" alt="" srcset="" class="w-7">
+            <button class="absolute bottom-6 bg-main rounded  right-6 fixed font-[500] py-1.5 px-1">
+                <img src="./icons/icons8-chevron-up-64.png" alt="" srcset="" class="w-7">
             </button>
         </div>
     </div>
 </body>
-</html>

@@ -11,5 +11,27 @@ var slideIndex = 0;
       slideIndex = 1;
     }
     slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 2000); // Change slide every 2 seconds
+    setTimeout(showSlides, 2000); 
   }
+
+
+  // home slide
+
+  window.addEventListener('DOMContentLoaded', function() {
+    var slideshow = document.getElementById('myDiv');
+    var bgImage = 'images/burger-g1ef7981ed_1920-150x150.jpg';
+    slideshow.style.backgroundImage = 'url(' + bgImage + ')';
+    var images = [
+        'images/footer1.jpg',
+        'images/footer2.jpg',
+        'images/burger-g1ef7981ed_1920-150x150.jpg'
+    ];
+    var currentIndex = 0;
+
+    function changeBackground() {
+        slideshow.style.backgroundImage = 'url(' + images[currentIndex] + ')';
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    setInterval(changeBackground, 3000); 
+});

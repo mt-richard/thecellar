@@ -1,26 +1,13 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-            main: '#16174'
-            black : '#000'
-          }
-        }
-      }
-    }
-  </script>
+<?php include 'component/includes/head.php'; ?>
+
 </head>
-<body>
-  <h1 class="text-3xl font-bold underline **text-clifford**">
-    Test app
-  </h1>
+<body class="relative">
+    <?php include './component/header.php'; ?>
+    <?php include './component/home.php'; ?>
+    <?php include './component/footer.php'; ?>
+    
 </body>
 </html>
