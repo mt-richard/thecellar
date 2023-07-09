@@ -10,6 +10,8 @@
         extend: {
           colors: {
             clifford: '#da373d',
+            main: '#16174'
+            black : '#000'
           }
         }
       }
