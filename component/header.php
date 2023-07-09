@@ -1,14 +1,14 @@
 
-    <div>
-        <div class=" md:flex flex-wrap items-center justify-between mx-auto bg-black px-5 md:px-28 ">
+    <div class="sticky top-0 fixed z-2">
+        <div class="md:flex items-center justify-between mx-auto bg-black px-5 md:px-28  ">
             <div class="">
                 <img src="./images/logo.png" alt="" srcset="" class="w-80">
             </div>
 
             <div class="navlink pt-10 md:pt-0 px-3 md:px-0 md:bg-black">
                 <ul class="text-gray-400 md:flex gap-5 items-center">
-                    <li class="w-full md:w-10 py-3 capitalize md:py-10 text-main font-bold md:uppercase hover:text-main cursor-pointer">home</li>
-                    <li class="w-full  md:w-20 py-3 capitalize md:py-10 text-white font-bold md:uppercase hover:text-main cursor-pointer">about us</li>
+                    <li class="w-full md:w-14 py-3 capitalize md:py-10 text-main font-bold md:uppercase hover:text-main cursor-pointer"><a href="index.php">home</a></li>
+                    <li class="w-full  md:w-20 py-3 capitalize md:py-10 text-white font-bold md:uppercase hover:text-main cursor-pointer"><a href="about.php">about us</a></li>
                     <li class="w-full  md:w-auto py-3 capitalize md:py-10 text-white md:uppercase hover:text-main font-bold cursor-pointer  "><span class="items-center flex justify-between">menu <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
                     </svg></span> 

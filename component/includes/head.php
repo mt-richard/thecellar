@@ -18,7 +18,7 @@
   </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap');
-      h3 {
+      h3, .headtxt {
         font-family: 'Ropa Sans', sans-serif;
         font-weight: 500;
       }
@@ -27,13 +27,34 @@
         position: absolute;
       }
       .hslideshow-container {
-            
             background-size: cover;
-            height:100vh;
+            height:90vh;
             background-position: center;
-            background-attachment: fixed;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             
+        }
+        .section{
+            position: relative;
+            width: 100%;
+            height: 45vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            clip-path: circle(260vh at 50% -220vh);
+        }
+        .section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./images/IMG_8942.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            filter: blur(4px);
+            z-index: -1;
         }
         
   </style>

@@ -22,9 +22,9 @@ var slideIndex = 0;
     var bgImage = 'images/burger-g1ef7981ed_1920-150x150.jpg';
     slideshow.style.backgroundImage = 'url(' + bgImage + ')';
     var images = [
-        'images/footer1.jpg',
-        'images/footer2.jpg',
-        'images/burger-g1ef7981ed_1920-150x150.jpg'
+        './images/footer1.jpg',
+        './images/IMG_8942.jpg',
+        './images/burger-g1ef7981ed_1920-150x150.jpg'
     ];
     var currentIndex = 0;
 

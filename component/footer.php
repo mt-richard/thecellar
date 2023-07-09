@@ -1,9 +1,7 @@
 
-<body>
-    
     <div>
-        <div class="flex gap-6 bg-black px-60 py-10 w-full ">
-            <div class="md:w-1/4">
+        <div class="md:flex gap-6 bg-gray-950 px-5 md:px-60 py-10 w-full pt-20">
+            <div class="md:w-1/4 mb-5">
                 <h3 class="text-white font-bold text-3xl pb-5 ">The Cellar Restraurant</h3>
                 <p class="text-gray-400 font-light leading-2 pb-4">The cellar restaurant is bright, airy, and lively. Our goal is to produce meals that engage all of our senses, restoring, challenging, and enriching our customers’ lives.</p>
 
@@ -34,16 +32,15 @@
                 </div>
             </div>
 
-            <div class="md:w-1/4">
+            <div class="md:w-1/4 mb-5">
                 <h3 class="text-white font-bold text-3xl pb-5 ">Opening Hours</h3>
                 <p class="text-gray-400 font-light leading-2 pb-4">We open 7 days a week from 7: 00 AM up to 00:00 PM.</p>
             </div>
 
-            <div class="md:w-1/4">
+            <div class="md:w-1/4 mb-5">
                 <h3 class="text-white font-bold text-3xl pb-5 ">Instagram</h3>
-                
                 <div>
-                    <div class="slideshow-container relative">
+                    <div class="slideshow-container relative md:h-auto h-[180px]">
                         <div class="slide w-full h-[180px] absolute ">
                         <img src="./images/footer1.jpg" class="w-full h-full object-cover" alt="Image 1">
                         </div>
@@ -60,7 +57,7 @@
 
             </div>
 
-            <div class="md:w-1/4">
+            <div class="md:w-1/4 mb-5">
                 <h3 class="text-white font-bold text-3xl pb-5 ">Newsletter</h3>
                 <p class="text-gray-400 font-light leading-2 pb-4">Join our newsletter and be the first one to get the latest offers and promotions</p>
 
@@ -70,7 +67,6 @@
                 </form>
                 
             </div>
-
         </div>
 
         <div class="w-full bg-main  items-center py-6">
