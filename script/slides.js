@@ -19,12 +19,15 @@ var slideIndex = 0;
 
   window.addEventListener('DOMContentLoaded', function() {
     var slideshow = document.getElementById('myDiv');
-    var bgImage = 'images/burger-g1ef7981ed_1920-150x150.jpg';
+    var bgImage = 'images/IMG_8940-1024x720.jpg';
     slideshow.style.backgroundImage = 'url(' + bgImage + ')';
     var images = [
-        './images/footer1.jpg',
+        './images/coffee-2242213_1280-1024x682.jpg',
         './images/IMG_8942.jpg',
-        './images/burger-g1ef7981ed_1920-150x150.jpg'
+        './images/wpcontent/burger-g1ef7981ed_1920-1536x1024.jpg',
+        './images/wpcontent/IMG_8964-1024x720.jpg',
+        './images/wpcontent/cup-829527_1280-1024x685.jpg',
+        './images/wpcontent/burger-g1ef7981ed_1920-1536x1024.jpg',
     ];
     var currentIndex = 0;
 
@@ -35,3 +38,6 @@ var slideIndex = 0;
 
     setInterval(changeBackground, 3000); 
 });
+
+
+// about us slides

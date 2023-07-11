@@ -35,7 +35,6 @@
             
         }
         .section{
-            position: relative;
             width: 100%;
             height: 45vh;
             display: flex;
@@ -45,7 +44,6 @@
         }
         .section:before {
             content: "";
-            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -53,8 +51,28 @@
             background-image: url('./images/IMG_8942.jpg');
             background-size: cover;
             background-attachment: fixed;
-            filter: blur(4px);
-            z-index: -1;
+            position: relative;
+        }
+        .bgphoto{
+            background-image: url('./images/IMG_8942.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .bgphoto2{
+            background-image: url('./images/wpcontent/wine-about.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .bgfoodmenu{
+          background-image: url('./images/wpcontent/foodmenu.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .clip{
+          clip-path: ellipse(50% 100% at 50% 0%);
+          
+              
         }
         
   </style>

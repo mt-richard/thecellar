@@ -1,6 +1,6 @@
 
 <div class="w-full ">
-    <div id="myDiv" class="hslideshow-container sticky w-full items-center text-center mx-auto  py-10">
+    <div id="myDiv" class="hslideshow-container w-full items-center text-center mx-auto  py-10">
         <div class=" w-full h-60">
         </div>
         <div class=" w-full z-10 ">

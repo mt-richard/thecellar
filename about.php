@@ -60,9 +60,189 @@
                 </div>
               </div>
             </div>
-          </section>
+        </section>
         
-    </div>
+        <!-- Background Image -->
+
+        <section>
+          <div class="w-full h-80 bgphoto ">
+          </div>
+        </section>
+
+        <!-- Book a table -->
+
+        <section class="text-gray body-font overflow-hidden md:px-56 z-1 mx-auto">
+          <div class="w-full mx-auto md:py-20 md:flex gap-5 container md:px-40">
+            <div class="md:w-3/5 ">
+              <img src="./images/wpcontent/table.png" alt="ecommerce" class="w-full h-[450px] object-cover rounded" >
+            </div>
+
+            <div class="md:w-1/2 w-full lg:py-6 mt-6 lg:mt-0 text-gray-400">
+                  <h2 class="headtxt font-black text-4xl text-black mb-4 ">Book a table</h2>
+                
+                  <div class="">
+                    <input type="text" id="name" name="name" placeholder="Name" class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mb-5">
+                  </div>
+                  <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                      <div class="">
+                        <input type="number" id="phone" name="phone" placeholder="Phone Number" class="w-full bg-opacity-50 rounded border border-gray-300   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                      </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                      <div class="">
+                        <input type="email" id="email" name="email" placeholder="Email" class="w-full bg-opacity-50 rounded border border-gray-300   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pt-4">
+                    <input type="date" id="checkin" name="checkin" placeholder="Checkin" class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                  </div>
+                <div class=" pt-4">
+                  <input type="time" id="time" name="time" placeholder="Time" class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mb-5">
+                </div>
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                      <div class="">
+                      <select
+                          type="text"
+                          name="space"
+                          id="space"
+                          class="w-full  py-3 px-6 border outline-none">
+                          <option value="" label="Select Space"></option>
+                          <option value="">VIP</option>
+                          <option value="">Balcony</option>
+                          <option value="">Garden</option>
+                          <option value="">Coffee Terrace</option>
+                        
+                        </select>
+                      </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                      <div class="">
+                      <select
+                          type="text"
+                          name="guests"
+                          id="guests"
+                          class="w-full  py-3 px-6 border outline-none" >
+                          <option value="" label="Geusts"></option>
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4</option>
+                          <option value="">5</option>
+                          <option value="">6</option>
+                          <option value="">7</option>
+                          <option value="">8</option>
+                          <option value="">9</option>
+                          <option value="">10</option>
+                          <option value="">11</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <button class="text-white font-[500] bg-main mt-8 border-0 py-2 w-full px-6 focus:outline-none rounded text-">Book Your Table Now</button>
+                  </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Whats Customer says -->
+        
+        <section class="text-gray bg-gray-100 md:px-32 py-20 z-1 mx-auto">
+            <div class="container px-5 mx-auto ">
+              <div class="text-center mb-10">
+                <h1 class="headtxt text-[35px] font-bold text-black pt-5">What customer say</h1>
+                <p class="text-[15px] leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500 pt-2">Our customers from different places have appreciated our services and were happy to give us their thoughts on google reviews and other review platforms. <a href="#" class="text-main font-[500]">Click here to write your review.</p>
+              </div>
+              <div class="flex gap-10 px-40">
+                <div class=" w-full text-center items-center ">
+                  
+                <!-- Slide show -->
+                  <style>
+                    .feedback-card {
+                      display: none;
+                    }
+                    .slide-show {
+                      display: flex;
+                      justify-content: space-between;
+                    }
+                  </style>
+
+                  <div class="slide-show w-full border-none">
+                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                      <p class="text-gray-500 font-[500] italic pb-6">Excellent food, very fair prices. Awesome atmosphere. Definitrly recommend!</p>
+                      <h2 class="headtxt text-black font-bold text-[16px]">Patrick Muhire</h2>
+                    </div>
+                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                      <p class="text-gray-500 font-[500] italic pb-6">The  best place in Kigali. It is quiet and clean. With the best servicce</p>
+                      <h2 class="headtxt text-black font-bold text-[16px]">Green One</h2>
+                    </div>
+                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                      <p class="text-gray-500 font-[500] italic pb-6">Everything ther is excellent. From their service to their products</p>
+                      <h2 class="headtxt text-black font-bold text-[16px]">Howard Isaacson</h2>
+                    </div>
+                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                      <p class="text-gray-500 font-[500] italic pb-6">Excellent food, very fair prices. Awesome atmosphere. Definitrly recommend!</p>
+                      <h2 class="headtxt text-black font-bold text-[16px]">Bertin HARELIMANA</h2>
+                    </div>
+                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                      <p class="text-gray-500 font-[500] italic pb-6">Everything ther is excellent. From their service to their products</p>
+                      <h2 class="headtxt text-black font-bold text-[16px]">Patrick Muhire</h2>
+                    </div>
+                  </div>
+
+                  <script>
+                          function defaultSlide() {
+                            for (var i = 0; i < feedbackCards.length; i++) {
+                              feedbackCards[i].style.display = 'none';
+                            }
+                            for (var i = index; i < index + 3; i++) {
+                              var cardIndex = i % feedbackCards.length;
+                              feedbackCards[cardIndex].style.display = 'block';
+                            }
+                          }
+                          setInterval(defaultSlide, 50); 
+                          var feedbackCards = document.getElementsByClassName('feedback-card');
+                          var index = 0;
+
+                          function showNextCards() {
+                            for (var i = 0; i < feedbackCards.length; i++) {
+                              feedbackCards[i].style.display = 'none';
+                            }
+
+                            for (var i = index; i < index + 3; i++) {
+                              var cardIndex = i % feedbackCards.length;
+                              feedbackCards[cardIndex].style.display = 'block';
+                            }
+
+                            index = (index + 1) % feedbackCards.length;
+                          }
+                          setInterval(showNextCards, 3000); 
+
+                  </script>
+
+                </div>
+              </div>
+            </div>
+        </section>
+
+         <!-- Background Image -->
+
+         <section>
+            <div class="w-full h-80 bgphoto2 mx-auto flex justify-center items-center">
+              <div class="px-6 py-2 flex gap-2 bg-white rounded-xl w-48 items-center ">
+                <img src="./icons/icons8-instagram-50.png" class=" w-8">
+                <span class="headtxt text-gray-600 text-black hover:text-main">@thecellarresto</span>
+              </div>
+            </div>
+          </section>
+    
+    
+    
+    
+        </div>
 
     <?php include './component/footer.php'; ?>
 
