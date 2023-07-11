@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
 <head>
-<?php include 'component/includes/head.php'; ?>
+<?php
+include 'component/includes/head.php'; ?>
 
 </head>
 <body class="relative">

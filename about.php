@@ -2,14 +2,15 @@
 <!doctype html>
 <html>
 <head>
-  <?php include './component/includes/head.php'; ?>
+  <?php 
+  include './component/includes/head.php'; ?>
 </head>
 <body class="relative">
     <?php include './component/header.php'; ?>
 
     <div class="main">
         <section>
-           <div class="section"></div>
+           <div class="section clipabout"></div>
         </section>
         <section class="text-gray body-font overflow-hidden   md:px-56 z-1 mx-auto">
             <div class="container px-10 mx-auto text-center ">

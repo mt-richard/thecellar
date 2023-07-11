@@ -7,21 +7,20 @@
 <body class="relative">
     <?php include './component/header.php'; ?>
 
-   <div class="relative">
-      <div class="w-full h-60 bgfoodmenu mx-auto flex justify-center items-center">
-        <div class="">
-          <h1 class="headtxt font-black text-white text-5xl drop-shadow ">Browse our drinks menu</h1>
+    <div class="relative">
+        <div class="clip w-full h-80 bgfoodmenu mx-auto flex justify-center items-center">
+          <div class="">
+            <h1 class="headtxt font-black text-white text-4xl drop-shadow ">Browse our drinks menu</h1>
+          </div>
         </div>
-        
-       <div class="absolute mt-60 rounded-full bg-gray-50 w-40">
-          <img src="./images/wpcontent/shortlogo.png" alt="" srcset="" class="w-full h-full">
+        <div class="h-20 bg-white  ">
+            <div class="absolute top-56 flex justify-center items-center w-full ">
+                <img src="./images/wpcontent/oie_Aw1JizUdOUP1.png" alt="" srcset="" class="w-32 h-full bg-white rounded-full">
+            </div>
         </div>
-        
       </div>
-      <div class="h-40 bg-white "></div>
     </div>
-   </div>
-   
+
    <!-- PDF Menu -->
    
   

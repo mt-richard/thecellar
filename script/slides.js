@@ -19,10 +19,14 @@ var slideIndex = 0;
 
   window.addEventListener('DOMContentLoaded', function() {
     var slideshow = document.getElementById('myDiv');
-    var bgImage = 'images/IMG_8940-1024x720.jpg';
-    slideshow.style.backgroundImage = 'url(' + bgImage + ')';
+    var bgImage = './images/wpcontent/cup-829527_1280-1024x685.jpg';
+    var gradientOverlay = 'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))';
+   
+    slideshow.style.backgroundImage = gradientOverlay + ', url(' + bgImage + ')';
+    slideshow.style.backgroundImage = gradientOverlay + ', url(' + bgImage + ')';
+ 
     var images = [
-        './images/coffee-2242213_1280-1024x682.jpg',
+        './images/wpcontent/cup-829527_1280-1024x685.jpg',
         './images/IMG_8942.jpg',
         './images/wpcontent/burger-g1ef7981ed_1920-1536x1024.jpg',
         './images/wpcontent/IMG_8964-1024x720.jpg',
@@ -32,12 +36,64 @@ var slideIndex = 0;
     var currentIndex = 0;
 
     function changeBackground() {
-        slideshow.style.backgroundImage = 'url(' + images[currentIndex] + ')';
+      slideshow.style.backgroundImage = gradientOverlay + ', url(' + images[currentIndex] + ')';
         currentIndex = (currentIndex + 1) % images.length;
     }
 
     setInterval(changeBackground, 3000); 
+
 });
 
 
-// about us slides
+
+// slide for Coffe and supermarket
+
+
+var openModalBtn = document.getElementById("openModal");
+var modal = document.getElementById("myModal");
+var closeModalBtn = document.getElementsByClassName("close")[0];
+var slideshow = document.getElementById("slideshow");
+var prevBtn = document.getElementById("prevBtn");
+var nextBtn = document.getElementById("nextBtn");
+var currentSlide = 0;
+
+openModalBtn.addEventListener("click", function() {
+  modal.style.display = "block";
+  showSlide(currentSlide);
+});
+
+closeModalBtn.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+
+prevBtn.addEventListener("click", function() {
+  showSlide(currentSlide - 1);
+});
+
+nextBtn.addEventListener("click", function() {
+  showSlide(currentSlide + 1);
+});
+
+function showSlide(index) {
+  var slides = slideshow.getElementsByTagName("img");
+  var totalSlides = slides.length;
+
+  if (index < 0) {
+    index = totalSlides - 1;
+  } else if (index >= totalSlides) {
+    index = 0;
+  }
+
+  for (var i = 0; i < totalSlides; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[index].style.display = "block";
+  currentSlide = index;
+}
