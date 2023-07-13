@@ -89,7 +89,7 @@ include 'connection.php';
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.php">
+        <a class="nav-link " href="dashboard.php">
           <i class="bi bi-grid-fill"></i>
           <span style="color:#012970;">Dashboard</span>
         </a>

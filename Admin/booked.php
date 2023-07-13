@@ -53,22 +53,42 @@ include 'navbar.php';
                       </tr>
                     </thead>
                     <tbody>
+
+                    <?php
+
+                        require_once('../models/booking.php');
+                        $book = new booking();
+                        $result = $book->getAll();
+                        foreach ($result as $row){
+                            ?> 
                       <tr>
-                        <th scope="row"><a href="#">#2</a></th>
-                        <td>Drinks Drinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
+                        <th scope="row"><a href="#"><?php echo $row['b_id'] ?></a></th>
+                        <td><?php echo $row['b_name'] ?></td>
+                        <td><?php echo $row['b_email'] ?></td>
+                        <td><?php echo $row['b_phone'] ?></td>
+                        <td><?php echo $row['b_time'] ?></td>
+                        <td><?php echo $row['b_checkin'] ?></td>
+                        <td><?php echo $row['b_guest'] ?></td>
+                        <td><?php echo $row['b_space'] ?></td>
                        
                        
-                        <td class="" style="width: auto;"><span class="btn btn-danger">Delete</span></td>
+                        <td class="" style="width: auto;">
+                        <a href="<?php echo str_replace('booked.php', $_SERVER['PHP_SELF'], '?delete=' . $row['b_id']); ?>" class="btn btn-danger">Delete</a></td>
                       </tr>
-                      
+                      <?php } ?>
                     </tbody>
                   </table>
+
+                  <?php
+                        require_once('../models/booking.php');
+                        $book = new booking();
+
+                        if (isset($_GET['delete'])) {
+                            $delete = $book->destroy($_GET['delete']);
+                            echo "<script>alert('$delete'); window.history.pushState({}, '', 'booked.php'); window.location.reload();</script>";
+                        
+                        }
+                  ?>
 
                 </div> 
 

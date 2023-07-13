@@ -44,8 +44,6 @@ include 'navbar.php';
                     ?> 
                 </div>
 
-
-    
                 <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -84,7 +82,54 @@ include 'navbar.php';
                 <button class="btn btn-primary  mt-5" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Add Category</button>
                 
     <!-- End Example Code -->
+                    <!-- Update categorry -->
+                    <div class="">
+                    <?php
+                    // require_once('../models/category.php');
+                    // if(isset($_POST['updateCategory'])){
+                    //     $cat = new category(null,$_POST['name']);
+                    //     $result = $cat->update();
+                    //     echo "<script>alert('$result');</script>";
+                    // }
+                    ?> 
+                </div>
 
+                <div class="modal fade" id="UpdateToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Update Category</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Category Name</label>
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            
+                        </div>
+                        <input type="submit" name="addCategory" value="Update" class="btn btn-primary">
+                        </form>
+                    </div>
+                    
+                    </div>
+                </div>
+                </div>
+                <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+                    <!-- End of update category -->
                 
   
                   <h5 class="card-title">Recent category</h5>
@@ -112,7 +157,7 @@ include 'navbar.php';
                         <th scope="row"><a href="#"><?php echo $row['c_id'] ?></a></th>
                         <td><?php echo $row['c_name'] ?></td>
                        
-                        <td class="" style="width: auto;"><button class="btn btn-success">Update</button> &nbsp;&nbsp;&nbsp;<a href="<?php echo str_replace('category.php', $_SERVER['PHP_SELF'], '?delete=' . $row['c_id']); ?>" name="deletebtn" class="btn btn-danger">Delete</a></td>
+                        <td class="" style="width: auto;"><button class="btn btn-success p-r-5"  data-bs-target="#UpdateToggle" data-bs-toggle="modal">Update</button> &nbsp;&nbsp;&nbsp;<a href="<?php echo str_replace('category.php', $_SERVER['PHP_SELF'], '?delete=' . $row['c_id']); ?>" name="deletebtn" class="btn btn-danger">Delete</a></td>
                       </tr>
                       <?php } ?>
 
@@ -125,7 +170,7 @@ include 'navbar.php';
 
                         if (isset($_GET['delete'])) {
                             $delete = $cats->destroy($_GET['delete']);
-                            echo "<script>alert('$delete'); window.history.pushState({}, '', 'category.php');</script>";
+                            echo "<script>alert('$delete'); window.history.pushState({}, '', 'category.php'); window.location.reload();</script>";
                         }
                         ?>
 

@@ -10,16 +10,32 @@ class category extends dbconnection{
     }
 
     //function for saving into database
-    public function save(){
-        try{
-            $stm = $this->db->prepare("INSERT INTO category(`c_name`) VALUES(?)");
-            $stm->execute([$this->name]);
-            return "Category Added successful !!!";
+    public function save()
+        {
+            try {
+                // Check if the category already exists
+                $checkStm = $this->db->prepare("SELECT COUNT(*) FROM category WHERE c_name = ?");
+                $checkStm->execute([$this->name]);
+                $count = $checkStm->fetchColumn();
+
+                if ($count > 0) {
+                    return "Category already exists.";
+                }
+
+                // Insert the category if it doesn't exist
+                $stm = $this->db->prepare("INSERT INTO category(c_name) VALUES(?)");
+                $stm->execute([$this->name]);
+
+                if ($stm) {
+                    return "Category added successfully!";
+                } else {
+                    return "Failed to add the category.";
+                }
+            } catch (Exception $e) {
+                return $e->getMessage();
+            }
         }
-        catch(Exception $e){
-            return $e->getMessage();
-        }
-    }
+
 
     //function for retrieving data from database
     public function getAll(){

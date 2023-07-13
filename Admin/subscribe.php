@@ -47,21 +47,44 @@ include 'navbar.php';
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">subscriber Name</th>
+                        <th scope="col">subscriber Email</th>
                         
-                        <th scope="col">Status</th>
+                        <th scope="col">Created_at</th>
                       </tr>
                     </thead>
                     <tbody>
+
+                    <?php
+
+                        require_once('../models/subscribe.php');
+                        $sub = new subscribe();
+                        $result = $sub->getAll();
+                        foreach ($result as $row){
+                            ?> 
+
                       <tr>
-                        <th scope="row"><a href="#">#2</a></th>
-                        <td>Drinks</td>
-                       
-                        <td><span class="badge bg-success">Available</span></td>
+                        <th scope="row"><a href="#"><?php echo $row['s_id'] ?></a></th>
+                        <td><?php echo $row['s_email'] ?></td>
+                        <td><?php echo $row['s_created'] ?></td>
+                        <td class="" style="width: auto;">
+                            <a href="<?php echo str_replace('subscribe.php', $_SERVER['PHP_SELF'], '?delete=' . $row['s_id']); ?>" class="btn btn-danger">Delete</a>
+                        </td>
+                    
                       </tr>
-                      
+                      <?php } ?>
                     </tbody>
                   </table>
+
+                  <?php
+                        require_once('../models/subscribe.php');
+                        $sub = new subscribe();
+
+                        if (isset($_GET['delete'])) {
+                            $delete = $sub->destroy($_GET['delete']);
+                            echo "<script>alert('$delete'); window.history.pushState({}, '', 'subscribe.php'); window.location.reload();</script>";
+                        
+                        }
+                  ?>
 
                 </div> 
 

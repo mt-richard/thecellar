@@ -23,11 +23,6 @@ include 'navbar.php';
 
             <!-- Sales Card -->
           
-
-           
-        
-
-
             <!-- Recent Sales -->
             <div class="col-12">
               <div class="card recent-sales overflow-auto">
@@ -56,18 +51,39 @@ include 'navbar.php';
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+                      require_once('../models/contact.php');
+                      $contact = new contact();
+                      $result = $contact->getAll();
+                      foreach($result as $row){
+                        ?>
+                     
                       <tr>
-                        <th scope="row"><a href="#">#2</a></th>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
+                        <th scope="row"><a href="#"><?php echo $row['co_id'] ?></a></th>
+                        <td><?php echo $row['co_name'] ?></td>
+                        <td><?php echo $row['co_email'] ?></td>
+                        <td><?php echo $row['co_phone'] ?></td>
+                        <td><?php echo $row['co_message'] ?></td>
+                        <td><?php echo $row['co_created'] ?></td>
+                        <td class="" style="width: auto;">
+                        <a href="<?php echo str_replace('contact.php', $_SERVER['PHP_SELF'], '?delete=' . $row['co_id']); ?>" class="btn btn-danger">Delete</a></td>
                     
                       </tr>
-                      
+                      <?php } ?>
                     </tbody>
                   </table>
+
+
+                  <?php
+                        require_once('../models/contact.php');
+                        $contact = new contact();
+
+                        if (isset($_GET['delete'])) {
+                            $delete = $contact->destroy($_GET['delete']);
+                            echo "<script>alert('$delete'); window.history.pushState({}, '', 'contact.php'); window.location.reload();</script>";
+                        
+                        }
+                  ?>
 
                 </div> 
 

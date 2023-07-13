@@ -32,7 +32,41 @@ include 'navbar.php';
 
     <!-- Example Code -->
 
-           
+    <div>
+     
+      
+      <?php
+      require_once('../models/product.php');
+      
+      if (isset($_POST['addproduct'])) {
+          $image = $_FILES['image']['tmp_name']; 
+          $imageName = $_FILES['image']['name']; 
+          $targetDirectory = '../images/product/'; 
+          $targetPath = $targetDirectory . $imageName; 
+      
+          $allowedFormats = array('jpg', 'jpeg', 'png', 'gif');
+          $fileExtension = strtolower(pathinfo($imageName, PATHINFO_EXTENSION));
+          if (!in_array($fileExtension, $allowedFormats)) {
+            echo "<script>alert('Invalid file format. Only JPG, JPEG, PNG, and GIF images are allowed.');</script>";
+          }
+
+         else if (move_uploaded_file($image, $targetPath)) {
+              $product = new product(null, $_POST['category'], $_POST['name'], $_POST['desc'], $_POST['size'], $_POST['price'], $targetPath);
+              $result = $product->save();
+              echo "<script>alert('$result');</script>";
+          } else {
+              $errorCode = $_FILES['image']['error'];
+              if ($errorCode === UPLOAD_ERR_OK) {
+                  echo "<script>alert('Failed to move the uploaded file.');</script>";
+              } else {
+                  echo "<script>alert('File upload failed with error code: " . $errorCode . "');</script>";
+              }
+          }
+      }
+      ?>
+      
+    
+    </div>    
     
     <div class="modal fade" id="exampleModalToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
       <div class="modal-dialog modal-dialog-centered">
@@ -42,7 +76,7 @@ include 'navbar.php';
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Product Name</label>
                 <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -50,30 +84,43 @@ include 'navbar.php';
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Product Category</label>
-                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                
+                <select name="category" id="exampleInputEmail1" class="form-select" aria-label="Default select example">
+                <option label="Product Category"></option>
+                <?php
+      
+                  require_once('../models/category.php');
+                      $cat = new category();
+                      $result = $cat->getAll();
+                      foreach($result as $row){
+                         $rowname = $row['c_name'];
+                        echo "<option value='$rowname' label='$rowname'></option>";
+                      }
+                  ?>
+                  
+              </select>
+
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Product Description</label>
-                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="desc" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Product Size</label>
-                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" name="size" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Product Price</label>
-                <input type="number" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="number" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 
               </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Product Image</label>
-                <input type="file" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="file" name="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 
               </div>
-              <input type="submit" name="addCategory" value="submit" class="btn btn-primary">
+              <input type="submit" name="addproduct" value="submit" class="btn btn-primary">
             </form>
           </div>
           
@@ -95,7 +142,73 @@ include 'navbar.php';
       </div>
     </div>
     <button class="btn btn-primary  mt-5" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Add Product</button>
-    
+    <!-- Update modal Code -->
+
+    <div class="modal fade" id="updateToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Update Product</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="POST">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Category</label>
+                <select name="category" id="exampleInputEmail1" class="form-select" aria-label="Default select example">
+                  <option label="Product Category"></option>
+              </select>
+
+              </div>
+              
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Description</label>
+                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Size</label>
+                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Price</label>
+                <input type="number" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Product Image</label>
+                <input type="file" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                
+              </div>
+              <input type="submit" name="update" value="Update" class="btn btn-primary">
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          
+          <div class="modal-footer">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End of Update code -->
     <!-- End Example Code -->
   </body>
                   <h5 class="card-title">Recent category</h5>
@@ -110,25 +223,44 @@ include 'navbar.php';
                         <th scope="col">Size</th>
                         <th scope="col">Price</th>
                         <th scope="col">Image</th>
-                        <th scope="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+
+                        require_once('../models/product.php');
+                        $product = new product();
+                        $result = $product->getAll();
+                        foreach ($result as $row){
+                            ?> 
                       <tr>
-                        <th scope="row"><a href="#">#2</a></th>
-                        <td>Drinks Drinks</td>
-                        <td>Drinks</td>
-                        <td>DrinksDrinksDrinksDrinksDrinksDrinksDrinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
-                        <td>Drinks</td>
+                        <th scope="row"><a href="#"><?php echo $row['p_id'] ?></a></th>
+                        <td><?php echo $row['p_name'] ?></td>
+                        <td><?php echo $row['p_category'] ?></td>
+                        <td><?php echo $row['p_desc'] ?></td>
+                        <td><?php echo $row['p_size'] ?></td>
+                        <td><?php echo $row['p_price'] ?></td>
+                        <td><img src="<?php echo $row['p_img'] ?>" width="50" height="50" class="w-5"></td>
                        
-                       
-                        <td class="" style="width: auto;"><span class="btn btn-success">Update</span><span class="btn btn-danger">Delete</span></td>
+                        <td class="" style="width: auto;">
+                          <span class="btn btn-success p-r-6"  data-bs-target="#updateToggle" data-bs-toggle="modal">Update</span> &nbsp;&nbsp;&nbsp;
+                          <a href="<?php echo str_replace('product.php', $_SERVER['PHP_SELF'], '?delete=' . $row['p_id']); ?>" class="btn btn-danger">Delete</a>
+                        </td>
                       </tr>
-                      
+                      <?php } ?>
                     </tbody>
                   </table>
+
+                  <?php
+                        require_once('../models/product.php');
+                        $product = new product();
+
+                        if (isset($_GET['delete'])) {
+                            $delete = $product->destroy($_GET['delete']);
+                            echo "<script>alert('$delete'); window.history.pushState({}, '', 'product.php'); window.location.reload();</script>";
+                        
+                        }
+                  ?>
 
                 </div> 
 

@@ -1,40 +1,6 @@
 <?php
 include 'navbar.php';
 
-if (isset($_POST['submit'])){
-    
-    $firstname=$_POST['firstname'];
-    $lastname=$_POST['lastname'];
-    $phone=$_POST['phone'];
-    $email=$_POST['email'];
-    $address=$_POST['address'];
-    $password=$_POST['password'];
-    $role=$_POST['role'];
-
-    $sql=mysqli_query($conn,"INSERT INTO user(
-        firstname,
-        lastname,
-        phone,
-        email,
-        address,
-        password,
-        role
-        ) VALUES (
-            '$firstname',
-            '$lastname',
-            '$phone',
-            '$email',
-            '$address',
-            '$password',
-            '$role')");
-
-        if ($sql) {
-            echo '<script>alert("User added, Successfully")</script>';
-        }
-        else {
-            $errormessage .='Account creation failed!'.$conn->error;     
-        } 
-} 
 ?>
 
   <main id="main" class="main">
@@ -78,10 +44,7 @@ if (isset($_POST['submit'])){
                   <label>Password</label>
                     <input type="password" name="password" class="form-control" id="">
                   </div>
-                  <div class="col-sm-4">
-                  <label>Role</label>
-                    <input type="text" name="role" class="form-control" id="">
-                  </div>
+                  
                 </div>
 
               
