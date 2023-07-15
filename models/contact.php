@@ -1,5 +1,8 @@
 `<?php
-require_once("../models/dbconnection.php");
+// require_once("../models/dbconnection.php");
+
+include "dbconnection.php";
+
 class contact extends dbconnection{
     private $id;
     private $name;
@@ -12,6 +15,7 @@ class contact extends dbconnection{
         $this->phone=$phone;
         $this->email=$email;
         $this->message=$message;
+        $this->name=$name;
     }
 
     //function for saving into database

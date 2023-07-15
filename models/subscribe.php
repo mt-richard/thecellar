@@ -1,5 +1,6 @@
 `<?php
-require_once("../models/dbconnection.php");
+// require_once("../models/dbconnection.php");
+include "dbconnection.php";
 class subscribe extends dbconnection{
     private $id;
     private $email;
@@ -12,7 +13,7 @@ class subscribe extends dbconnection{
     //function for saving into database
     public function save(){
         try{
-            $stm = $this->db->prepare("INSERT INTO subscriber(`co_email`) VALUES(?)");
+            $stm = $this->db->prepare("INSERT INTO subscriber(`s_email`) VALUES(?)");
             $stm->execute([$this->email]);
             return "Thanks For Subscribing !!!";
         }

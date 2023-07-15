@@ -7,8 +7,13 @@ include 'navbar.php';
     <div class="pagetitle">
       <h1>Booked</h1>
       <nav>
+      <style>
+          .breadcrumb-item a{
+            color:blue;
+          }
+        </style>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item active">booked</li>
         </ol>
       </nav>
@@ -36,7 +41,23 @@ include 'navbar.php';
     <!-- End Example Code -->
   </body>
                   <h5 class="card-title">Recent booked</h5>
+                     <!-- Search form -->
+                  <div class="row p-3">
+                    <div class="col-md-5 mx-auto p-3 d-flex justify-content-end">
+                      <div class="input-group">
+                      <input class="form-control border-end-0 border" type="search"  id="searchInput" class="form-control" placeholder="Search by name, category, or description">
+                        <!-- <input class="form-control border-end-0 border" type="search" placeholder="search" id="example-search-input"> -->
+                        <span class="input-group-append">
+                          <button class="btn btn-outline-secondary bg-primary border-start-0 border-bottom-0 border ms-n5" type="button">
+                            <i class="bi bi-search text-white"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
 
+
+                  <!-- End of search form -->
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
@@ -61,7 +82,7 @@ include 'navbar.php';
                         $result = $book->getAll();
                         foreach ($result as $row){
                             ?> 
-                      <tr>
+                      <tr class="table-row">
                         <th scope="row"><a href="#"><?php echo $row['b_id'] ?></a></th>
                         <td><?php echo $row['b_name'] ?></td>
                         <td><?php echo $row['b_email'] ?></td>
@@ -118,6 +139,37 @@ include 'navbar.php';
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+      document.getElementById('searchInput').addEventListener('input', function() {
+      let input, filter, table, tr, td, i, j, txtValue, searchColumns;
+      input = this.value.trim().toUpperCase();
+      table = document.querySelector('.datatable');
+      tr = table.getElementsByClassName('table-row');
+      searchColumns = [0,1,2,3,4,5]; 
+
+      for (i = 0; i < tr.length; i++) {
+          let displayRow = false;
+
+          for (j = 0; j < searchColumns.length; j++) {
+              td = tr[i].getElementsByTagName('td')[searchColumns[j]];
+              if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(input) > -1) {
+                      displayRow = true;
+                      break;
+                  }
+              }
+          }
+
+          if (displayRow) {
+              tr[i].style.display = '';
+          } else {
+              tr[i].style.display = 'none';
+          }
+      }
+    });
+   
+</script>
 
 </body>
 

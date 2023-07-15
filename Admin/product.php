@@ -7,8 +7,13 @@ include 'navbar.php';
     <div class="pagetitle">
       <h1>Product</h1>
       <nav>
+      <style>
+          .breadcrumb-item a{
+            color:blue;
+          }
+        </style>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item active">product</li>
         </ol>
       </nav>
@@ -144,75 +149,28 @@ include 'navbar.php';
     <button class="btn btn-primary  mt-5" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Add Product</button>
     <!-- Update modal Code -->
 
-    <div class="modal fade" id="updateToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Update Product</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form method="POST">
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Product Name</label>
-                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Product Category</label>
-                <select name="category" id="exampleInputEmail1" class="form-select" aria-label="Default select example">
-                  <option label="Product Category"></option>
-              </select>
-
-              </div>
-              
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Product Description</label>
-                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Product Size</label>
-                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Product Price</label>
-                <input type="number" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Product Image</label>
-                <input type="file" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                
-              </div>
-              <input type="submit" name="update" value="Update" class="btn btn-primary">
-            </form>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          
-          <div class="modal-footer">
-            
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- End of Update code -->
+    
     <!-- End Example Code -->
   </body>
-                  <h5 class="card-title">Recent category</h5>
+                  <h5 class="card-title">Recent product</h5>
+                    <!-- Search form -->
+                    <div class="row p-3">
+                    <div class="col-md-5 mx-auto p-3 d-flex justify-content-end">
+                      <div class="input-group">
+                        <input class="form-control border-end-0 border" type="search"  id="searchInput" class="form-control" placeholder="Search by name, category, or description">
+                        <span class="input-group-append">
+                          <button class="btn btn-outline-secondary bg-primary border-start-0 border-bottom-0 border ms-n5" type="button">
+                            <i class="bi bi-search text-white"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
 
+
+                  <!-- End of search form -->
+
+                 
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
@@ -223,6 +181,7 @@ include 'navbar.php';
                         <th scope="col">Size</th>
                         <th scope="col">Price</th>
                         <th scope="col">Image</th>
+                        <th class="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -233,20 +192,24 @@ include 'navbar.php';
                         $result = $product->getAll();
                         foreach ($result as $row){
                             ?> 
-                      <tr>
-                        <th scope="row"><a href="#"><?php echo $row['p_id'] ?></a></th>
-                        <td><?php echo $row['p_name'] ?></td>
-                        <td><?php echo $row['p_category'] ?></td>
-                        <td><?php echo $row['p_desc'] ?></td>
-                        <td><?php echo $row['p_size'] ?></td>
-                        <td><?php echo $row['p_price'] ?></td>
-                        <td><img src="<?php echo $row['p_img'] ?>" width="50" height="50" class="w-5"></td>
-                       
-                        <td class="" style="width: auto;">
-                          <span class="btn btn-success p-r-6"  data-bs-target="#updateToggle" data-bs-toggle="modal">Update</span> &nbsp;&nbsp;&nbsp;
-                          <a href="<?php echo str_replace('product.php', $_SERVER['PHP_SELF'], '?delete=' . $row['p_id']); ?>" class="btn btn-danger">Delete</a>
-                        </td>
-                      </tr>
+                    
+                      
+                        <tr class="table-row">
+                          <th scope="row"><a href="#"><?php echo $row['p_id'] ?></a></th>
+                          <td><?php echo $row['p_name'] ?></td>
+                          <td><?php echo $row['p_category'] ?></td>
+                          <td><?php echo $row['p_desc'] ?></td>
+                          <td><?php echo $row['p_size'] ?></td>
+                          <td><?php echo $row['p_price'] ?></td>
+                          <td><img src="<?php echo $row['p_img']; ?>" width="50" height="50" class="w-5"></td>
+                        
+                          <td class="" style="width: auto;">
+                          <a href="edit_product.php?edit=<?php echo $row['p_id']; ?>" class="btn btn-primary" >Update</a></button> &nbsp;&nbsp;&nbsp;
+                            <a href="<?php echo str_replace('product.php', $_SERVER['PHP_SELF'], '?delete=' . $row['p_id']); ?>" class="btn btn-danger">Delete</a>
+                          </td>
+                        </tr>
+                     
+
                       <?php } ?>
                     </tbody>
                   </table>
@@ -290,6 +253,38 @@ include 'navbar.php';
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+      document.getElementById('searchInput').addEventListener('input', function() {
+      let input, filter, table, tr, td, i, j, txtValue, searchColumns;
+      input = this.value.trim().toUpperCase();
+      table = document.querySelector('.datatable');
+      tr = table.getElementsByClassName('table-row');
+      searchColumns = [0,1,2,3,4,5]; 
+
+      for (i = 0; i < tr.length; i++) {
+          let displayRow = false;
+
+          for (j = 0; j < searchColumns.length; j++) {
+              td = tr[i].getElementsByTagName('td')[searchColumns[j]];
+              if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(input) > -1) {
+                      displayRow = true;
+                      break;
+                  }
+              }
+          }
+
+          if (displayRow) {
+              tr[i].style.display = '';
+          } else {
+              tr[i].style.display = 'none';
+          }
+      }
+    });
+   
+</script>
+
 
 </body>
 

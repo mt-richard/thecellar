@@ -35,7 +35,13 @@ include 'navbar.php';
                       <i class="bi bi-grid-fill"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>145</h6>
+                      <h6>
+                      <?php 
+                          require_once('../models/product.php'); 
+                          $products = new product(); 
+                          echo $products->countBook(); 
+                          ?>
+                      </h6>
 
                     </div>
                   </div>
@@ -54,11 +60,14 @@ include 'navbar.php';
                       <i class="bi bi-calendar-check-fill" style="color:#4154f1;"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php
-														$select=$conn->query("SELECT * FROM user");
-														$SUM=mysqli_num_rows($select);
-														echo $SUM;     
-													?></h6>
+                      <h6>
+                      
+                        <?php 
+                          require_once('../models/product.php'); 
+                          $products = new product(); 
+                          echo $products->countBookbook(); 
+                          ?>
+                      </h6>
 
                     </div>
                   </div>
@@ -76,11 +85,13 @@ include 'navbar.php';
                       <i class="bi bi-people-fill" style="color:#4154f1;"></i>
                     </div>
                     <div class="ps-3">
-                      <h6><?php
-														$select=$conn->query("SELECT * FROM agency");
-														$SUM=mysqli_num_rows($select);
-														echo $SUM;     
-													?></h6>
+                      <h6>
+                      <?php 
+                          require_once('../models/product.php'); 
+                          $products = new product(); 
+                          echo $products->countBookuser(); 
+                          ?>
+                      </h6>
 
                     </div>
                   </div>

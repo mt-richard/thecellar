@@ -13,7 +13,6 @@ class category extends dbconnection{
     public function save()
         {
             try {
-                // Check if the category already exists
                 $checkStm = $this->db->prepare("SELECT COUNT(*) FROM category WHERE c_name = ?");
                 $checkStm->execute([$this->name]);
                 $count = $checkStm->fetchColumn();
@@ -22,7 +21,6 @@ class category extends dbconnection{
                     return "Category already exists.";
                 }
 
-                // Insert the category if it doesn't exist
                 $stm = $this->db->prepare("INSERT INTO category(c_name) VALUES(?)");
                 $stm->execute([$this->name]);
 
@@ -49,10 +47,10 @@ class category extends dbconnection{
         }
     }
     //function for retrieving one by Id
-    public function getById(){
+    public function getById($id){
         try{
             $stm = $this->db->prepare("SELECT * FROM category WHERE c_id=?");
-            $stm->execute([$this->id]);
+            $stm->execute([$id]);
             return $stm->fetchAll();
         }
         catch(Exception $e){
@@ -60,6 +58,30 @@ class category extends dbconnection{
         }
     }
     //function for updating
+
+    public function update($id, $name){
+        try {
+            $checkStm = $this->db->prepare("SELECT * FROM category WHERE c_id = ?");
+            $checkStm->execute([$id]);
+            $count = $checkStm->rowCount(); // Use rowCount() to get the number of rows
+    
+            if ($count == 0) { // Check if the category does not exist
+                return "Category does not exist.";
+            }
+    
+            $stm = $this->db->prepare("UPDATE category SET c_name=? WHERE c_id = ?");
+            $result = $stm->execute([$name, $id]);
+    
+            if ($result) {
+                return "Category updated successfully!";
+            } else {
+                return "Failed to update the category.";
+            }
+        } catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+    
 
     //function for delete
     public function destroy($id){

@@ -7,8 +7,13 @@ include 'navbar.php';
     <div class="pagetitle">
       <h1>Category</h1>
       <nav>
+      <style>
+          .breadcrumb-item a{
+            color:blue;
+          }
+        </style>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
           <li class="breadcrumb-item active">category</li>
         </ol>
       </nav>
@@ -83,18 +88,7 @@ include 'navbar.php';
                 
     <!-- End Example Code -->
                     <!-- Update categorry -->
-                    <div class="">
-                    <?php
-                    // require_once('../models/category.php');
-                    // if(isset($_POST['updateCategory'])){
-                    //     $cat = new category(null,$_POST['name']);
-                    //     $result = $cat->update();
-                    //     echo "<script>alert('$result');</script>";
-                    // }
-                    ?> 
-                </div>
-
-                <div class="modal fade" id="UpdateToggle" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
+                    <div class="modal fade" id="myModal" aria-labelledby="exampleModalToggleLabel" tabindex="-1" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -104,11 +98,19 @@ include 'navbar.php';
                     <div class="modal-body">
                         <form method="POST">
                         <div class="mb-3">
+                        <?php 
+                         require_once('../models/category.php');
+                         if (isset($_GET['edit'])){
+                         $cat = new category();
+                         $result = $cat->getById($_GET['edit']);
+                         foreach($result as $row){
+                        
+                        ?>
                             <label for="exampleInputEmail1" class="form-label">Category Name</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            
+                            <input type="text" name="name" value="<?php echo $row['c_name']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <?php } }?>
                         </div>
-                        <input type="submit" name="addCategory" value="Update" class="btn btn-primary">
+                        <input type="submit" name="addCategory" value="submit" class="btn btn-primary">
                         </form>
                     </div>
                     
@@ -129,11 +131,29 @@ include 'navbar.php';
                     </div>
                 </div>
                 </div>
+                
+
                     <!-- End of update category -->
                 
   
                   <h5 class="card-title">Recent category</h5>
+                  <!-- Search form -->
+                  <div class="row p-3">
+                    <div class="col-md-5 mx-auto p-3 d-flex justify-content-end">
+                      <div class="input-group">
+                      <input class="form-control border-end-0 border" type="search"  id="searchInput" class="form-control" placeholder="Search by name, category, or description">
+                        <!-- <input class="form-control border-end-0 border" type="search" placeholder="search" id="example-search-input"> -->
+                        <span class="input-group-append">
+                          <button class="btn btn-outline-secondary bg-primary border-start-0 border-bottom-0 border ms-n5" type="button">
+                            <i class="bi bi-search text-white"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
 
+
+                  <!-- End of search form -->
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
@@ -153,11 +173,13 @@ include 'navbar.php';
                         foreach ($result as $row){
                             ?>   
                 </div>
-                      <tr>
+                      <tr class="table-row">
                         <th scope="row"><a href="#"><?php echo $row['c_id'] ?></a></th>
                         <td><?php echo $row['c_name'] ?></td>
                        
-                        <td class="" style="width: auto;"><button class="btn btn-success p-r-5"  data-bs-target="#UpdateToggle" data-bs-toggle="modal">Update</button> &nbsp;&nbsp;&nbsp;<a href="<?php echo str_replace('category.php', $_SERVER['PHP_SELF'], '?delete=' . $row['c_id']); ?>" name="deletebtn" class="btn btn-danger">Delete</a></td>
+                        <td class="" style="width: auto;">
+                        <a href="edit_category.php?edit=<?php echo $row['c_id']; ?>" class="btn btn-primary" >Update</a></button> &nbsp;&nbsp;&nbsp;
+                        <a href="<?php echo str_replace('category.php', $_SERVER['PHP_SELF'], '?delete=' . $row['c_id']); ?>" class="btn btn-danger">Delete</a></td>
                       </tr>
                       <?php } ?>
 
@@ -203,6 +225,37 @@ include 'navbar.php';
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+      document.getElementById('searchInput').addEventListener('input', function() {
+      let input, filter, table, tr, td, i, j, txtValue, searchColumns;
+      input = this.value.trim().toUpperCase();
+      table = document.querySelector('.datatable');
+      tr = table.getElementsByClassName('table-row');
+      searchColumns = [0,1,2,3,4,5]; 
+
+      for (i = 0; i < tr.length; i++) {
+          let displayRow = false;
+
+          for (j = 0; j < searchColumns.length; j++) {
+              td = tr[i].getElementsByTagName('td')[searchColumns[j]];
+              if (td) {
+                  txtValue = td.textContent || td.innerText;
+                  if (txtValue.toUpperCase().indexOf(input) > -1) {
+                      displayRow = true;
+                      break;
+                  }
+              }
+          }
+
+          if (displayRow) {
+              tr[i].style.display = '';
+          } else {
+              tr[i].style.display = 'none';
+          }
+      }
+    });
+   
+</script>
 
 </body>
 
