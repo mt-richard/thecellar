@@ -13,7 +13,7 @@ include 'navbar.php';
           }
         </style>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+          <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
           <li class="breadcrumb-item active">category</li>
         </ol>
       </nav>
@@ -173,7 +173,8 @@ include 'navbar.php';
                         foreach ($result as $row){
                             ?>   
                 </div>
-                      <tr class="table-row">
+                      
+                <tr class="table-row">
                         <th scope="row"><a href="#"><?php echo $row['c_id'] ?></a></th>
                         <td><?php echo $row['c_name'] ?></td>
                        

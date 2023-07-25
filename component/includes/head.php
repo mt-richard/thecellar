@@ -89,6 +89,9 @@
         .clipabout{
           clip-path: ellipse(60% 70% at 50% 0%);
         }
+        .smclipabout{
+          clip-path: ellipse(70% 90% at 50% 0%);
+        }
 
         .bgcatering{
           background-size: cover;

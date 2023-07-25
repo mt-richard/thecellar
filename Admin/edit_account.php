@@ -13,7 +13,7 @@ error_reporting(E_ALL); // Specify the error reporting level
           }
         </style>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
         <li class="breadcrumb-item active"><a href="account.php">account</a></li>
       </ol>
     </nav>
@@ -60,7 +60,7 @@ error_reporting(E_ALL); // Specify the error reporting level
                             <input type="text" name="username" value="<?php echo $row['a_username']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                             <label for="exampleInputEmail1" class="form-label">Password</label>
-                            <input type="text" name="password" value="<?php echo $row['a_password']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="password" name="password" value="<?php echo $row['a_password']; ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                          <?php } ?>
                         </div>
 

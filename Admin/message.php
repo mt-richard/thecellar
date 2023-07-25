@@ -5,7 +5,7 @@ include 'navbar.php';
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Contact</h1>
+      <h1>Message</h1>
       <nav>
         <style>
           .breadcrumb-item a{
@@ -14,7 +14,7 @@ include 'navbar.php';
         </style>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-          <li class="breadcrumb-item active">contact</li>
+          <li class="breadcrumb-item active">message</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -41,7 +41,7 @@ include 'navbar.php';
     
     <!-- End Example Code -->
   </body>
-                  <h5 class="card-title">Recent Contact us</h5>
+                  <h5 class="card-title">Recent Message </h5>
                    <!-- Search form -->
                    <div class="row p-3">
                     <div class="col-md-5 mx-auto p-3 d-flex justify-content-end">
@@ -65,29 +65,26 @@ include 'navbar.php';
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Phone Number</th>
                         <th scope="col">Message</th>
-                        <th scope="col">Created_at</th>
                         <th scope="col">Status</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php
-                      require_once('../models/contact.php');
-                      $contact = new contact();
+                      require_once('../models/supermarket.php');
+                      $contact = new message();
                       $result = $contact->getAll();
                       foreach($result as $row){
                         ?>
                      
                      <tr class="table-row">
-                        <th scope="row"><a href="#"><?php echo $row['co_id'] ?></a></th>
-                        <td><?php echo $row['co_name'] ?></td>
-                        <td><?php echo $row['co_email'] ?></td>
-                        <td><?php echo $row['co_phone'] ?></td>
-                        <td><?php echo $row['co_message'] ?></td>
-                        <td><?php echo $row['co_created'] ?></td>
+                        <th scope="row"><a href="#"><?php echo $row['id'] ?></a></th>
+                        <td><?php echo $row['name'] ?></td>
+                        <td><?php echo $row['email'] ?></td>
+                       
+                        <td><?php echo $row['message'] ?></td>
                         <td class="" style="width: auto;">
-                        <a href="<?php echo str_replace('contact.php', $_SERVER['PHP_SELF'], '?delete=' . $row['co_id']); ?>" class="btn btn-danger">Delete</a></td>
+                        <a href="<?php echo str_replace('supermarket.php', $_SERVER['PHP_SELF'], '?delete=' . $row['id']); ?>" class="btn btn-danger">Delete</a></td>
                     
                       </tr>
                       <?php } ?>
@@ -96,12 +93,12 @@ include 'navbar.php';
 
 
                   <?php
-                        require_once('../models/contact.php');
-                        $contact = new contact();
+                        require_once('../models/supermarket.php');
+                        $contact = new message();
 
                         if (isset($_GET['delete'])) {
                             $delete = $contact->destroy($_GET['delete']);
-                            echo "<script>alert('$delete'); window.history.pushState({}, '', 'contact.php'); window.location.reload();</script>";
+                            echo "<script>alert('$delete'); window.history.pushState({}, '', 'message.php'); window.location.reload();</script>";
                         
                         }
                   ?>
@@ -109,7 +106,7 @@ include 'navbar.php';
                 </div> 
 
               </div>
-            </div><!-- End Recent Sales -->
+            </div>
 
            
 
@@ -135,35 +132,54 @@ include 'navbar.php';
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
-      document.getElementById('searchInput').addEventListener('input', function() {
-      let input, filter, table, tr, td, i, j, txtValue, searchColumns;
-      input = this.value.trim().toUpperCase();
-      table = document.querySelector('.datatable');
-      tr = table.getElementsByClassName('table-row');
-      searchColumns = [0,1,2,3,4,5]; 
+document.getElementById('searchInput').addEventListener('input', function() {
+    let input, filter, table, tr, td, i, j, txtValue, searchColumns;
+    input = this.value.trim().toUpperCase();
+    table = document.querySelector('.datatable');
+    tr = table.getElementsByClassName('table-row');
+    searchColumns = [0, 1, 2, 3, 4];
 
-      for (i = 0; i < tr.length; i++) {
-          let displayRow = false;
+    let foundRecords = false; // Variable to keep track if any records are found
 
-          for (j = 0; j < searchColumns.length; j++) {
-              td = tr[i].getElementsByTagName('td')[searchColumns[j]];
-              if (td) {
-                  txtValue = td.textContent || td.innerText;
-                  if (txtValue.toUpperCase().indexOf(input) > -1) {
-                      displayRow = true;
-                      break;
-                  }
-              }
-          }
+    for (i = 0; i < tr.length; i++) {
+        let displayRow = false;
 
-          if (displayRow) {
-              tr[i].style.display = '';
-          } else {
-              tr[i].style.display = 'none';
-          }
-      }
-    });
-   
+        for (j = 0; j < searchColumns.length; j++) {
+            td = tr[i].getElementsByTagName('td')[searchColumns[j]];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(input) > -1) {
+                    displayRow = true;
+                    foundRecords = true; // Set foundRecords to true if at least one record is found
+                    break;
+                }
+            }
+        }
+
+        if (displayRow) {
+            tr[i].style.display = '';
+        } else {
+            tr[i].style.display = 'none';
+        }
+    }
+
+    let noRecordsMsg = document.getElementById('noRecordsMsg');
+    if (!foundRecords) {
+        if (noRecordsMsg) {
+            noRecordsMsg.style.display = 'block';
+        } else {
+            noRecordsMsg = document.createElement('p');
+            noRecordsMsg.id = 'noRecordsMsg';
+            noRecordsMsg.textContent = 'No records found!';
+            table.parentNode.insertBefore(noRecordsMsg, table.nextSibling);
+        }
+    } else {
+        if (noRecordsMsg) {
+            noRecordsMsg.style.display = 'none';
+        }
+    }
+});
+
 </script>
 
 </body>

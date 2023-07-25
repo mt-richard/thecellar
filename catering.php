@@ -10,7 +10,7 @@
 
     <div class="main">
         <section>
-           <div class="h-96 bgcatering clipabout"></div>
+           <div class="md:h-96 h-40 bgcatering clipabout"></div>
         </section>
         <section class="text-gray body-font overflow-hidden   md:px-56 z-1 mx-auto">
             <div class="container px-10 pb-10 mx-auto text-center ">
@@ -25,21 +25,21 @@
 
         <section class="text-gray body-font overflow-hidden   md:px-56 z-1 mx-auto">
             <div class="container px-5 py-5 mx-auto">
-              <div class="flex gap-10">
-                  <div class="w-1/2 h-[400px] rounded ">
+              <div class="md:flex gap-10">
+                  <div class="w-full md:w-1/2 h-[400px] rounded ">
                       <div class="relative bgcateringvan px-10 h-full w-full bg-gray-200 sm:py-24 py-16 sm:px-10 px-6 relative">
                         <div class="absolute bottom-10 text-left w-full">
                         <h2 class="headtxt text-4xl font-[900] drop-shadow text-white mb-3">Catering Vans</h2>
-                        <p class="break-words w-96 text-white drop-shadow">Our high end vans deliver our products and services to big, small or medium parties and gathering.</p>
+                        <p class="break-words  w-80 md:w-96 text-white drop-shadow">Our high end vans deliver our products and services to big, small or medium parties and gathering.</p>
                         
                       </div>
                     </div>
                   </div>
-                  <div class="w-1/2 h-[400px] rounded">
+                  <div class="w-full md:w-1/2 h-[400px] rounded">
                       <div class="relative bgcateringbike h-full w-full bg-gray-200 sm:py-24 py-16 sm:px-10 px-6 relative">
                         <div class="absolute bottom-10 text-left w-full">
                           <h2 class="headtxt text-4xl font-[900] drop-shadow text-white mb-3">Catering Bikes</h2>
-                          <p class="break-words w-96 text-white drop-shadow text-wrap">Our bikes deliver our products and services to customers in any place in Kigali. We deliver to your door</p>
+                          <p class="break-words  w-80 md:w-96 text-white drop-shadow text-wrap">Our bikes deliver our products and services to customers in any place in Kigali. We deliver to your door</p>
                           
                         </div>
                       </div>
@@ -48,13 +48,13 @@
         </section>
 
         <section class="text-gray body-font overflow-hidden   md:px-56 z-1 mx-auto">
-          <div class="container md:px-20 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full mb-20 " >
+          <div class="container md:px-20 py-10 md:py-24 mx-auto">
+            <div class="flex flex-col text-center w-full md:mb-20 " >
             
               <h1 class="headtxt text-[35px] font-bold text-black">Order our products</h1>
-              <p class="text-gray-600 font-[400] py-5 text-xl ">We deliver all of our products to any place in Kigali. Our catering service is on the client satisfaction level. Get the most quality products and an amazing satisfaction with our catering service.</p>
+              <p class="text-gray-600 font-[400] py-5 px-5 md:-xl ">We deliver all of our products to any place in Kigali. Our catering service is on the client satisfaction level. Get the most quality products and an amazing satisfaction with our catering service.</p>
               <div class="p-2 w-full">
-                  <button class="flex mx-auto text-white bg-main border-0 py-2 px-8  text-lg">Our menu</button>
+                  <a href="menu.php" ><button class="flex mx-auto text-white bg-main border-0 py-2 px-8  text-lg rounded">Our Menu</button></a>
               </div>
             </div>
           </div>

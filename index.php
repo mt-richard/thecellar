@@ -6,16 +6,16 @@ include 'component/includes/head.php'; ?>
 
 </head>
 <body class="relative">
-    <?php include './component/header.php'; ?>
+    <?php include './component/header.php'; ?> 
     
 
             
     <div class="w-full ">
-        <div id="myDiv" class="hslideshow-container w-full items-center text-center mx-auto  py-10">
-            <div class=" w-full h-40">
+        <div id="myDiv" class="hslideshow-container w-full items-center text-center mx-auto  md:py-10">
+            <div class=" w-full h-20 md:h-40">
             </div>
             <div class=" w-full z-10 ">
-                <div class=" text-center px-60">
+                <div class=" text-center md:px-60">
                     <div class="">
                         <h4 class="headtxt drop-shadow-xl text-white font-bold text-3xl">Welcome to</h4>
                     </div>
@@ -23,7 +23,7 @@ include 'component/includes/head.php'; ?>
                         <h1 class="headtxt drop-shadow-xl text-white font-bold text-6xl  py-2">The Cellar Restaurant</h1>
                         <h1 class="headtxt drop-shadow-xl text-white font-bold text-6xl  py-2"> Resto - Pizzeria</h1>
                     </div>
-                    <div class="px-60 pb-10">
+                    <div class="md:px-60 pb-10">
                         <p class="headtxt text-white drop-shadow text-2xl py-2">The best restaurant in Kigali.  Our goal is to produce meals that engage all of our senses, restoring, challenging, and enriching our customers’ lives.</p>
                     </div>
                     
@@ -36,8 +36,8 @@ include 'component/includes/head.php'; ?>
 
         <section class="text-col body-font overflow-hidden py-10  md:px-56 z-1 mx-auto">
             
-                <div class="container px-10 py-10 bg-gray-200 mx-auto flex gap-4 sm:flex-nowrap flex-wrap">
-                    <div class="w-1/2 rounded h-[480px]">
+                <div class="container px-5 md:px-10 py-10 bg-gray-200 mx-auto flex gap-4 sm:flex-nowrap flex-wrap">
+                    <div class="md:w-1/2 rounded h-[480px]">
                         <img  src="./images/IMG_8942.jpg" alt="ecommerce" class="w-full h-full object-cover ">
                     </div>
                     <div id="xbooktable" class="md:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -59,15 +59,16 @@ include 'component/includes/head.php'; ?>
                         
                         <div class="mx-auto w-full max-w-[550px] text-gray-500 ">
                             <form action="" method="POST">
-                                <div class=" flex gap-3">
+                                <div class=" md:flex gap-3">
                                     <div class="w-full md:w-1/2">
                                     <div class="mb-2">
                                         <input
                                         type="text"
                                         name="name"
                                         id="Name"
+                                        required
                                         placeholder="Name"
-                                        class="w-full py-3 px-6 bg-gray-200 border outline-none border"
+                                        class="w-full py-3 px-6 bg-gray-200 border outline-none border-gray-300 rounded"
                                         />
                                     </div>
                                     </div>
@@ -78,13 +79,14 @@ include 'component/includes/head.php'; ?>
                                         type="text"
                                         name="phone"
                                         id="phoneNumber"
+                                        required
                                         placeholder="Phone Number"
-                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border"
+                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border-gray-300 rounded"
                                         />
                                     </div>
                                     </div>
                                 </div>
-                                <div class="gap-3 flex">
+                                <div class="gap-3 md:flex">
                                     <div class="w-full  md:w-1/2">
                                     <div class="mb-2">
                                         
@@ -92,8 +94,9 @@ include 'component/includes/head.php'; ?>
                                         type="email"
                                         name="email"
                                         id="email"
+                                        required
                                         placeholder="Email"
-                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border"
+                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border-gray-300 rounded"
                                         />
                                     </div>
                                     </div>
@@ -104,13 +107,14 @@ include 'component/includes/head.php'; ?>
                                         type="date"
                                         name="checkin"
                                         id="checkin"
+                                        required
                                         placeholder="Checkin"
-                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border"
+                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border-gray-300 rounded"
                                         />
                                     </div>
                                     </div>
                                 </div>
-                                <div class="gap-3 flex">
+                                <div class="gap-3 md:flex">
                                     <div class="w-full  md:w-1/2">
                                     <div class="mb-2">
                                         
@@ -118,8 +122,8 @@ include 'component/includes/head.php'; ?>
                                         type="time"
                                         name="time"
                                         id="time"
-                                        
-                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border"
+                                        required
+                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border-gray-300 rounded"
                                         />
                                     </div>
                                     </div>
@@ -130,8 +134,8 @@ include 'component/includes/head.php'; ?>
                                         type="text"
                                         name="guests"
                                         id="guests"
-                                        
-                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border"
+                                        required
+                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border-gray-300 rounded"
                                         >
                                         <option value="" label="Geusts"></option>
                                         <option value="1">1</option>
@@ -149,7 +153,7 @@ include 'component/includes/head.php'; ?>
                                     </div>
                                     </div>
                                 </div>
-                                <div class="gap-3 flex">
+                                <div class="gap-3 md:flex">
                                     
                                     <div class="w-full  md:w-1/2">
                                     <div class="mb-2">
@@ -158,8 +162,8 @@ include 'component/includes/head.php'; ?>
                                         type="text"
                                         name="space"
                                         id="space"
-                                        
-                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border"
+                                        required
+                                        class="w-full  py-3 px-6 bg-gray-200 border outline-none border-gray-300 rounded"
                                         >
                                         <option value="" label="Select Space"></option>
                                         <option value="VIP">VIP</option>
@@ -191,18 +195,18 @@ include 'component/includes/head.php'; ?>
         </section>
 
 
-        <section class="text-gray body-font overflow-hidden py-10  md:px-56 z-1 mx-auto">
-            <div class="container px-10 py-10 mx-auto flex gap-4 sm:flex-nowrap flex-wrap">
-                <div class="md:w-3/5 pt-10">
-                    <h1 class="headtxt text-3xl text-black font-bold pb-5 pt-10">Get In Touch with us</h1>
+        <section class="text-gray body-font overflow-hidden py-10 px-5 md:px-56 z-1 mx-auto">
+            <div class="container px-3 md:px-10 md:py-10 mx-auto flex gap-4 sm:flex-nowrap flex-wrap">
+                <div class="md:w-3/5 md:pt-10">
+                    <h1 class="headtxt text-3xl text-black font-bold pb-5 md:pt-10">Get In Touch with us</h1>
                     <p class=" leading-8 text-gray-600 pb-10 text-[16px]">If you have any question or need more information, fill the form to send us a quick message or use below contacts to get in touch with us. You can navigate using the provided map too.</p>
-                    <div class="grid grid-cols-3 gap-2 w-full">
-                        <div class="  bg-gray-200 rounded px-5 py-5 leading-4 w-full">
+                    <div class="md:grid md:grid-cols-3 gap-2 w-full">
+                        <div class="  bg-gray-200 rounded px-5 py-5 leading-4 w-full mb-2">
                             <h2 class="text-lg text-gray-500 mb-2">Address:</h2>
                             <p class="pb-2">Kigali Rwanda,</p>
                             <p class="pb-2">Remera Taxi Station</p>
                         </div>
-                        <div class="  bg-gray-200 rounded px-5 py-5 leading-4 w-full">
+                        <div class="  bg-gray-200 rounded px-5 py-5 leading-4 w-full mb-2">
                             <h2 class="text-lg text-gray-500  mb-2">Phone Number:</h2>
                             <p>+250 782 363 423</p>
                         </div>
@@ -213,7 +217,7 @@ include 'component/includes/head.php'; ?>
                     </div>
                 </div>
 
-                <div class="md:w-2/5 bg-gray-200 md:ml-auto w-full md:py-5 mt-8 md:mt-0 p">
+                <div class="md:w-2/5 bg-gray-200 md:ml-auto w-full py-5 md:py-5 mt-8 md:mt-0 p">
                 <?php
                         if(isset($_POST['contactus'])){
                             require_once('./models/contact.php');
@@ -232,6 +236,7 @@ include 'component/includes/head.php'; ?>
                                 name="name"
                                 id="Name"
                                 placeholder="Name"
+                                required
                                 class="w-full  py-2 px-6 bg-white outline-none border-0"
                                 />
                             </div>
@@ -244,17 +249,18 @@ include 'component/includes/head.php'; ?>
                                 name="phone"
                                 id="phoneNumber"
                                 placeholder="Phone Number"
+                                required
                                 class="w-full  py-2 px-6 bg-white outline-none border-0"
                                 />
                             </div>
                             </div>
                         </div>
                         <div class=" mb-4 px-3">
-                            <input type="email" id="email" name="email" placeholder="Email" class="w-full  py-2 px-6 bg-white outline-none border-0 ">
+                            <input type="email" required id="email" name="email" placeholder="Email" class="w-full  py-2 px-6 bg-white outline-none border-0 ">
                         </div>
                         <div class=" mb-4 px-3">
                             
-                            <textarea id="message" placeholder="Message" name="message" class="w-full h-36 py-3 px-6 bg-white outline-none border-0"></textarea>
+                            <textarea id="message" required placeholder="Message" name="message" class="w-full h-36 py-3 px-6 bg-white outline-none border-0"></textarea>
                         </div>
                         <button class="text-white bg-main border-0 ml-3 py-3 px-3 rounded w-1/2 font-[400]" name="contactus" type="submit">Send</button>
                         </div>

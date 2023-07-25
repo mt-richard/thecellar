@@ -124,6 +124,13 @@ include './session.php';
       </li>
       <!-- End Contact Nav -->
       <li class="nav-item">
+        <a class="nav-link " href="message.php">
+          <i class="bi bi-chat-fill"></i>
+          <span style="color:#012970;">Message</span>
+        </a>
+      </li>
+      <!-- End message Nav -->
+      <li class="nav-item">
         <a class="nav-link " href="subscribe.php">
           <i class="bi bi-person-fill-add"></i>
           <span style="color:#012970;">Subscribers</span>

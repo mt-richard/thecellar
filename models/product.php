@@ -1,5 +1,6 @@
 <?php
-require_once("../models/dbconnection.php");
+// require_once("../models/dbconnection.php");
+include "dbconnection.php";
 class product extends dbconnection{
     private $id;
     private $category;

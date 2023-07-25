@@ -8,13 +8,13 @@
     <?php include './component/header.php'; ?>
 
     <div class="relative">
-        <div class="clip w-full h-80 bgfoodmenu mx-auto flex justify-center items-center">
+        <div class="clip w-full h-60 md:h-80 bgfoodmenu mx-auto flex justify-center items-center">
           <div class="">
             <h1 class="headtxt font-black text-white text-4xl drop-shadow ">Browse our drinks menu</h1>
           </div>
         </div>
         <div class="h-20 bg-white  ">
-            <div class="absolute top-56 flex justify-center items-center w-full ">
+            <div class="absolute top-40 md:top-56 flex justify-center items-center w-full ">
                 <img src="./images/wpcontent/oie_Aw1JizUdOUP1.png" alt="" srcset="" class="w-32 h-full bg-white rounded-full">
             </div>
         </div>

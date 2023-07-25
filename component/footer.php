@@ -69,7 +69,7 @@
                         }
                 ?>
                 <form method="POST" action="" class="w-full">
-                    <input type="text" name="email" placeholder="Enter Email Address" class="p-3 px-5 outline-none  text-sm w-full mb-3 ">
+                    <input type="email" required name="email" placeholder="Enter Email Address" class="p-3 px-5 outline-none  text-sm w-full mb-3 ">
                     <input type="submit" value="Subscribe" name="addsub" class="bg-main w-full outline-none text-white font-bold p-3">
                 </form>
                 

@@ -10,10 +10,10 @@
 
     <div class="main">
         <section>
-           <div class="bgabout clipabout"></div>
+           <div class="bgabout h-96 md:h-80 smclipabout md:clipabout"></div>
         </section>
         <section class="text-gray body-font overflow-hidden   md:px-56 z-1 mx-auto">
-            <div class="container px-10 mx-auto text-center ">
+            <div class="container px-5 md:px-10 mx-auto text-center ">
                 <div class="w-full">
                     <h1 class="headtxt text-[35px] font-bold text-black ">About Us</h1>   
                 </div>
@@ -29,8 +29,8 @@
                 <h1 class="headtxt text-[35px] font-bold text-black pt-10">Best way to eat healthy food</h1>
                 <p class="text-[15px] leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500 pt-2">We serve everything in our restaurant daily, including our famous seasonal menu.</p>
               </div>
-              <div class="flex gap-10 px-40">
-                <div class="p-4 md:w-1/3 text-center items-center border border-gray-200 rounded-xl">
+              <div class="md:flex gap-10 md:px-40">
+                <div class="p-4 md:w-1/3 text-center items-center border border-gray-200 rounded-xl mb-2">
                   <div class="w-16 h-16 inline-flex items-center justify-center rounded-xl bg-main  mb-5 flex-shrink-0">
                     <img src="./icons/icons8-carrot-30.png"  class="w-12 h-12" alt="">
                   </div>
@@ -40,7 +40,7 @@
                    
                   </div>
                 </div>
-                <div class="p-4 md:w-1/3 text-center items-center border border-gray-200 rounded-xl">
+                <div class="p-4 md:w-1/3 text-center items-center border border-gray-200 rounded-xl mb-2">
                   <div class="w-16 h-16 inline-flex items-center justify-center rounded-xl bg-main  mb-5 flex-shrink-0">
                   <img src="./icons/icons8-hamburger-30.png"  class=" h-10" alt="">
                   </div>
@@ -50,7 +50,7 @@
                     
                   </div>
                 </div>
-                <div class="p-4 md:w-1/3 text-center items-center border border-gray-200 rounded-xl">
+                <div class="p-4 md:w-1/3 text-center items-center border border-gray-200 rounded-xl mb-2">
                   <div class="w-16 h-16 inline-flex items-center justify-center rounded-xl bg-main  mb-5 flex-shrink-0">
                   <img src="./icons/icons8-coffee-30.png" class=" h-10" alt="">
                   </div>
@@ -72,8 +72,8 @@
 
         <!-- Book a table -->
 
-        <section id="booktable" class="text-gray body-font overflow-hidden md:px-56 z-1 mx-auto">
-          <div class="w-full mx-auto md:py-20 md:flex gap-5 container md:px-40">
+        <section id="booktable" class="text-gray body-font overflow-hidden p-5 md:px-56 z-1 mx-auto">
+          <div class="w-full mx-auto md:py-20 md:flex gap-5 container  md:px-40">
             <div class="md:w-3/5 ">
               <img src="./images/wpcontent/table.png" alt="ecommerce" class="w-full h-[450px] object-cover rounded" >
             </div>
@@ -91,33 +91,34 @@
                   <h2 class="headtxt font-black text-4xl text-black mb-4 ">Book a table</h2>
                 <form action="" method="post">
                   <div class="">
-                    <input type="text" id="name" name="name" placeholder="Name" class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mb-5">
+                    <input type="text" id="name" required name="name" placeholder="Name" class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mb-5">
                   </div>
-                  <div class="flex flex-wrap -m-2">
-                    <div class="p-2 w-1/2">
+                  <div class="md:flex flex-wrap -m-2">
+                    <div class="p-2 md:w-1/2">
                       <div class="">
-                        <input type="number" id="phone" name="phone" placeholder="Phone Number" class="w-full bg-opacity-50 rounded border border-gray-300   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <input type="number" id="phone" required name="phone" placeholder="Phone Number" class="w-full bg-opacity-50 rounded border border-gray-300   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                       </div>
                     </div>
-                    <div class="p-2 w-1/2">
+                    <div class="p-2 md:w-1/2">
                       <div class="">
-                        <input type="email" id="email" name="email" placeholder="Email" class="w-full bg-opacity-50 rounded border border-gray-300   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <input type="email" id="email" required  name="email" placeholder="Email" class="w-full bg-opacity-50 rounded border border-gray-300   text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                       </div>
                     </div>
                   </div>
                   <div class="pt-4">
-                    <input type="date" id="checkin" name="checkin" placeholder="Checkin" class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    <input type="date" id="checkin" required name="checkin" placeholder="Checkin" class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                   </div>
                 <div class=" pt-4">
-                  <input type="time" id="time" name="time" placeholder="Time" class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mb-5">
+                  <input type="time" id="time" required name="time" placeholder="Time" class="w-full bg-white rounded border border-gray-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mb-5">
                 </div>
-                <div class="flex flex-wrap -m-2">
-                    <div class="p-2 w-1/2">
+                <div class="md:flex flex-wrap -m-2">
+                    <div class="p-2 md:w-1/2">
                       <div class="">
                       <select
                           type="text"
                           name="space"
                           id="space"
+                          required
                           class="w-full  py-3 px-6 border outline-none">
                           <option value="" label="Select Space"></option>
                           <option value="VIP">VIP</option>
@@ -128,12 +129,13 @@
                         </select>
                       </div>
                     </div>
-                    <div class="p-2 w-1/2">
+                    <div class="p-2 md:w-1/2">
                       <div class="">
                       <select
                           type="text"
                           name="guests"
                           id="guests"
+                          required
                           class="w-full  py-3 px-6 border outline-none" >
                           <option value="" label="Geusts"></option>
                           <option value="1">1</option>
@@ -168,7 +170,7 @@
                 <h1 class="headtxt text-[35px] font-bold text-black pt-5">What customer say</h1>
                 <p class="text-[15px] leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500 pt-2">Our customers from different places have appreciated our services and were happy to give us their thoughts on google reviews and other review platforms. <a href="#" class="text-main font-[500]">Click here to write your review.</p>
               </div>
-              <div class="flex gap-10 px-40">
+              <div class="md:flex md:gap-10 md:px-40">
                 <div class=" w-full text-center items-center ">
                   
                 <!-- Slide show -->
@@ -176,30 +178,27 @@
                     .feedback-card {
                       display: none;
                     }
-                    .slide-show {
-                      display: flex;
-                      justify-content: space-between;
-                    }
+                    
                   </style>
 
-                  <div class="slide-show w-full border-none">
-                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                  <div class="slide-show md:flex md:gap-3 justify-center w-full border-none">
+                    <div class="w-full feedback-card md:w-1/3 text-center items-center p-5 border border-gray-300 mb-2 rounded ">
                       <p class="text-gray-500 font-[500] italic pb-6">Excellent food, very fair prices. Awesome atmosphere. Definitrly recommend!</p>
                       <h2 class="headtxt text-black font-bold text-[16px]">Patrick Muhire</h2>
                     </div>
-                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                    <div class="w-full feedback-card md:w-1/3 text-center items-center p-5 border border-gray-300 mb-2 rounded ">
                       <p class="text-gray-500 font-[500] italic pb-6">The  best place in Kigali. It is quiet and clean. With the best servicce</p>
                       <h2 class="headtxt text-black font-bold text-[16px]">Green One</h2>
                     </div>
-                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                    <div class="w-full feedback-card md:w-1/3 text-center items-center p-5 border border-gray-300 mb-2 rounded ">
                       <p class="text-gray-500 font-[500] italic pb-6">Everything ther is excellent. From their service to their products</p>
                       <h2 class="headtxt text-black font-bold text-[16px]">Howard Isaacson</h2>
                     </div>
-                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                    <div class="w-full feedback-card md:w-1/3 text-center items-center p-5 border border-gray-300 mb-2 rounded ">
                       <p class="text-gray-500 font-[500] italic pb-6">Excellent food, very fair prices. Awesome atmosphere. Definitrly recommend!</p>
                       <h2 class="headtxt text-black font-bold text-[16px]">Bertin HARELIMANA</h2>
                     </div>
-                    <div class="feedback-card md:w-1/3 text-center items-center p-5">
+                    <div class="w-full feedback-card md:w-1/3 text-center items-center p-5 border border-gray-300 mb-2 rounded ">
                       <p class="text-gray-500 font-[500] italic pb-6">Everything ther is excellent. From their service to their products</p>
                       <h2 class="headtxt text-black font-bold text-[16px]">Patrick Muhire</h2>
                     </div>

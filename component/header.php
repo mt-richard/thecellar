@@ -24,16 +24,24 @@
       padding: 2px 5px;
     }
 
+    #myTopnav{
+      transition: transform 0.3s ease-in-out;
+    }
+
   </style>
 </head>
 <body>
-  <div class="sticky top-0 z-2">
+  <div class="sticky top-0 z-2 w-full">
     <div class="md:flex items-center justify-between mx-auto bg-black px-5 md:px-28">
-      <div>
-        <img src="./images/logo.png" alt="" class="w-80">
+      <div class="flex justify-between py-5 md:py-0">
+        <img src="./images/logo.png" alt="" class="md:w-80 w-60">
+        <div class=" md:hidden">
+          <button class="" id="btnMenu"><img src="./icons/icons8-menu-30.png" alt=""></button>
+          <button class=" hidden" id="btnCloseMenu"><img src="./icons/icons8-close-window-50.png" width="30" height="30" alt=""></button>
+        </div>
       </div>
 
-      <div id="myTopnav" class="topnav navlink  md:pt-0 px-3 md:px-0 md:bg-black">
+      <div id="myTopnav" class="topnav navlink hidden md:block  md:pt-0 px-3 md:px-0 md:bg-black">
         <ul class="text-gray-400 md:flex gap-5 items-center">
           <li class=" w-full md:w-14 py-3 capitalize md:py-10 text-white font-bold md:uppercase hover:text-main cursor-pointer">
             <a class="mynavlink " href="index.php">home</a>
@@ -47,11 +55,11 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
               </svg>
             </span>
-            <ul class="absolute bg-gray-800 hidden px-2 text-white capitalize w-full md:w-40">
-              <li class=" px-2 py-3 hover:text-main text-[12px] cursor-pointer font-[500] border-b border-gray-700 border-dashed">
+            <ul class="absolute bg-gray-900 hidden px-2 text-white capitalize w-full md:w-40">
+              <li class=" px-5 py-3 hover:text-main text-[12px] cursor-pointer font-[500] border-b border-gray-700 border-dashed">
                 <a class="mynavlink " href="foodmenu.php">food</a>
               </li>
-              <li class=" px-2 py-3  hover:text-main text-[12px] cursor-pointer font-[500] border-b border-gray-700 border-dashed">
+              <li class=" px-5 py-3  hover:text-main text-[12px] cursor-pointer font-[500] border-b border-gray-700 border-dashed">
                 <a class="mynavlink " href="drinksmenu.php">drinks</a>
               </li>
             </ul>
@@ -62,11 +70,11 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="m1 1 4 4 4-4"/>
               </svg>
             </span>
-            <ul class="absolute bg-gray-800 hidden px-2 text-white capitalize w-52 sub-menu">
-              <li class=" px-2 py-3 text-[12px] hover:text-main cursor-pointer font-[500] border-b border-gray-700 border-dashed"><a class="mynavlink " href="supermarket.php">the cellar supermarket</a></li>
-              <li class=" px-2 py-3 text-[12px] hover:text-main cursor-pointer font-[500] border-b border-gray-700 border-dashed"><a class="mynavlink " href="bakery.php">the cellar bakery</a></li>
-              <li class=" px-2 py-3 text-[12px] hover:text-main cursor-pointer font-[500] border-b border-gray-700 border-dashed"><a class="mynavlink " href="coffee.php">the cellar coffee Terrace</a></li>
-              <li class=" px-2 py-3 text-[12px] hover:text-main cursor-pointer font-[500] border-b border-gray-700 border-dashed"><a class="mynavlink " href="catering.php">outside catering</a></li>
+            <ul class="absolute bg-gray-900 hidden px-2 text-white capitalize md:w-52 w-full sub-menu">
+              <li class=" px-5 py-3 text-[12px] hover:text-main cursor-pointer font-[500] border-b border-gray-700 border-dashed"><a class="mynavlink " href="supermarket.php">the cellar supermarket</a></li>
+              <li class=" px-5 py-3 text-[12px] hover:text-main cursor-pointer font-[500] border-b border-gray-700 border-dashed"><a class="mynavlink " href="bakery.php">the cellar bakery</a></li>
+              <li class=" px-5 py-3 text-[12px] hover:text-main cursor-pointer font-[500] border-b border-gray-700 border-dashed"><a class="mynavlink " href="coffee.php">the cellar coffee Terrace</a></li>
+              <li class=" px-5 py-3 text-[12px] hover:text-main cursor-pointer font-[500] border-b border-gray-700 border-dashed"><a class="mynavlink " href="catering.php">outside catering</a></li>
             </ul>
           </li>
           <li class=" w-full md:w-auto py-3 capitalize md:py-10 text-white font-bold md:uppercase hover:text-main cursor-pointer">
@@ -112,6 +120,17 @@
               link.setAttribute("aria-current", "page");
           }
           });
+          document.getElementById('btnMenu').addEventListener("click", function(e) {
+              document.getElementById('myTopnav').style.display = "block";
+              document.getElementById('btnMenu').style.display = "none";
+              document.getElementById('btnCloseMenu').style.display = "block";
+          });
+          document.getElementById('btnCloseMenu').addEventListener("click", function(e) {
+              document.getElementById('myTopnav').style.display = "none";
+              document.getElementById('btnMenu').style.display = "block";
+              document.getElementById('btnCloseMenu').style.display = "none";
+          });
+
 
           
   </script>
